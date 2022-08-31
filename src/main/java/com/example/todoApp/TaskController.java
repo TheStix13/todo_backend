@@ -43,6 +43,7 @@ public class TaskController {
                 .map(task ->
                 {
                     task.setComplete(true);
+                    repository.flush();
                     return task;
                 })
                 .orElseThrow(() -> new TaskNotFoundException(id));

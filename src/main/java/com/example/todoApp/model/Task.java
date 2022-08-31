@@ -12,7 +12,6 @@ public class Task {
     @GeneratedValue
     private Long Id;
     private String content;
-    @Value("${some.key:false}")
     private Boolean complete;
 
     public String getContent() {
@@ -29,5 +28,9 @@ public class Task {
 
     public void setComplete(Boolean complete) {
         this.complete = complete;
+    }
+
+    public Long getId() {
+        return Id;
     }
 }
