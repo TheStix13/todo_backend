@@ -42,7 +42,6 @@ public class TaskController {
         return repository.findById(id)
                 .map(task ->
                 {
-                    repository.delete(task);
                     task.setComplete(true);
                     repository.save(task);
                     return task;
