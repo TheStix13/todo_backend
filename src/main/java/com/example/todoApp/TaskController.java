@@ -14,7 +14,7 @@ public class TaskController {
     TaskRepository repository;
 
     @GetMapping("/tasks")
-    List<Task> getTasks()
+    Iterable<Task> getTasks()
     {
         return repository.findAll();
     }
@@ -42,8 +42,9 @@ public class TaskController {
         return repository.findById(id)
                 .map(task ->
                 {
+                    repository.delete(task);
                     task.setComplete(true);
-                    repository.flush();
+                    repository.save(task);
                     return task;
                 })
                 .orElseThrow(() -> new TaskNotFoundException(id));
