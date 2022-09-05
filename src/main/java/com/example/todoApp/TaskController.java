@@ -43,7 +43,7 @@ public class TaskController {
         return repository.findById(id)
                 .map(task ->
                 {
-                    task.setComplete(true);
+                    task.setComplete(!task.getComplete());
                     repository.save(task);
                     return task;
                 })
