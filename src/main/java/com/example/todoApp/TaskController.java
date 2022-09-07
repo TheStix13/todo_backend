@@ -35,6 +35,7 @@ public class TaskController {
         repository.delete(
                 repository.findById(id).orElseThrow(() -> new TaskNotFoundException(id))
         );
+
     }
 
     @PutMapping("/tasks/{id}")
